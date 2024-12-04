@@ -37,7 +37,7 @@
   }
 }
 
-/*  --------------- PALETTE COLOR ---------------  */
+/*  ------------------------------ PALETTE COLOR ------------------------------  */
 
 /************ BACKGROUND ************/
 /* colore base */
@@ -103,7 +103,13 @@
   text-align: center !important;
 }
 
-/*  --------------- NAV BAR ---------------  */
+/*  ------------------------------ NAV BAR ------------------------------  */
+
+/************ NAV BAR CONTAINER ************/
+.navbar-container {
+  background-color: #c1254c;
+  padding-bottom: 1px;
+}
 
 /************ NAV BAR LIST ************/
 .navbar-list {
@@ -136,4 +142,19 @@
     text-decoration: none;
     border: solid black 2px;
     padding: 7px 12px;
+  }
+
+  /*  ------------------------------ BODY ------------------------------  */
+  .body-text {
+    text-align: center;
+    padding: 5px 40px;
+  }
+
+  /*  ------------------------------ FOOTER ------------------------------  */
+  .footer-container {
+    background-color: #c1254c;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    
   }

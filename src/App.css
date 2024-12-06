@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -75,12 +81,6 @@
 /* fake gold */
 .txt-color-gold {
   color: #FFBA49;
-  text-shadow: 
-  0px 1px 0 #000, /* Bordo in alto a sinistra */
-   1px -1px 0 #000, /* Bordo in alto a destra */
-  -1px  1px 0 #000, /* Bordo in basso a sinistra */
-   1px  1px 0 #000; /* Bordo in basso a destra */
-   font-size: 5em;
 }
 
 /* fake alert */
@@ -104,11 +104,9 @@
 }
 
 /*  ------------------------------ NAV BAR ------------------------------  */
-
 /************ NAV BAR CONTAINER ************/
 .navbar-container {
   background-color: #c1254c;
-  padding-bottom: 1px;
 }
 
 /************ NAV BAR LIST ************/
@@ -117,31 +115,31 @@
   justify-content: space-evenly;
   list-style: none;
   padding-top: 15px;
-  padding-right: 32px;
 }
   .navbar-list li a:hover {
     color: #c1254c;
     background-color: #FFBA49;
+    /* new */
+    transform: translateY(-2px);
   }
 
   /************ NAV BAR SINGLE LIST ************/
   .navbar-single-list {
+    /* new */
     transition: color 0.2s;
     color: #FFBA49;
     text-decoration: none;
-    font-size: 1.2rem;
-    border: solid black 2px;
-    padding: 7px 12px;
+    font-size: 1.5em;
+    padding: 20px 12px;
   }
 
   /************ NAV BAR HOME BUTTON ************/
   .navbar-home {
-    font-size: 1.7rem;
+    font-size: 2em;
     transition: color 0.2s;
     color: #FFBA49;
     text-decoration: none;
-    border: solid black 2px;
-    padding: 7px 12px;
+    padding: 20px 12px;
   }
 
   /*  ------------------------------ BODY ------------------------------  */
@@ -150,11 +148,30 @@
     padding: 5px 40px;
   }
 
+  .body-title {
+    text-align: center;
+    margin-top: 5px;  
+    color: #FFBA49;
+    font-size: 6em;
+    text-shadow: 
+    0px 1px 0 #000, /* Bordo in alto a sinistra */
+     1px -1px 0 #1b1b1b, /* Bordo in alto a destra */
+    -1px  1px 0 #000, /* Bordo in basso a sinistra */
+     2px  2.5px 0 #191919; /* Bordo in basso a destra */
+  }
+
   /*  ------------------------------ FOOTER ------------------------------  */
   .footer-container {
     background-color: #c1254c;
     display: flex;
     list-style: none;
     justify-content: center;
-    
+  }
+
+
+    /*  ------------------------------ FOTO PROFILO ------------------------------  */
+  .foto-profilo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
   }

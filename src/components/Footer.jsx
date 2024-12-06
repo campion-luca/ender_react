@@ -1,7 +1,4 @@
-import { Component } from "react";
-
-class Footer extends Component {
-    render () {
+const Footer = () => {
         return (
             <ul className="footer-container fixed-bottom mb-0 py-3">
                 <li className="pe-5">Chi siamo?</li>
@@ -10,7 +7,6 @@ class Footer extends Component {
                 <li className="pe-5">Non so'</li>
             </ul>
         )
-    }
 }
 
 export default Footer

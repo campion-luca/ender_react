@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function NavBar() {
+const NavBar = () => {
 
         return (
 
@@ -20,9 +20,19 @@ export function NavBar() {
                 <Link to="/stupiscimi" className="navbar-single-list">Stupiscimi</Link>
               </li>
               <li>
-                <Link to="/contact" className="navbar-single-list">Contact</Link>
+
+                <Link to="/login" className="navbar-single-list">
+                              <img
+        src="https://static.vecteezy.com/system/resources/previews/036/594/092/non_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg"
+        alt="Profilo"
+        className="foto-profilo me-2"
+    />
+                Login
+                </Link>
               </li>
             </ul>
           </div>
         );
     }
+
+    export default NavBar

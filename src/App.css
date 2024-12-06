@@ -107,6 +107,7 @@
 /************ NAV BAR CONTAINER ************/
 .navbar-container {
   background-color: #c1254c;
+  padding-bottom: 0.1em;
 }
 
 /************ NAV BAR LIST ************/
@@ -135,7 +136,7 @@
 
   /************ NAV BAR HOME BUTTON ************/
   .navbar-home {
-    font-size: 2em;
+    font-size: 1.5em;
     transition: color 0.2s;
     color: #FFBA49;
     text-decoration: none;

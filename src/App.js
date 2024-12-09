@@ -2,35 +2,36 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css' // import di bootstrap
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar';
-import Body from './components/Body';
+import Home from './components/Home';
 import Footer from './components/Footer';
 import Crea from './components/Crea';
 import Stupiscimi from './components/Stupiscimi';
 import Contact from './components/Contact';
-import Cerca from './components/Cerca'
+import Trova from './components/Trova'
 import Login from './components/Login'
 import Profilo from './components/Profilo'
 
 function App() {
   return (
-    <div className="bg-color-rolex">
+    <div className="bg-default">
     <BrowserRouter>
 
     <NavBar />
 
         <Routes>
 
-        <Route path="/" element={<Body />} />
-        <Route path="/crea" element={<Crea />} />
+        <Route path="/" element={<Home />} />  {/* HOME PAGE */}
+        <Route path="/crea" element={<Crea />} />  {/* CREAZIONE EVENTI */}
+        <Route path="/trova" element={<Trova />} />  {/* TROVA L'EVENTO <3 */}
+        <Route path="/login" element={<Login />} />  {/* LOGIN ACCOUNT */}
+        <Route path="/profilo" element={<Profilo />} />  {/* ME / COMPONENT */}
+
+        {/* DA FARE */}
         <Route path="/stupiscimi" element={<Stupiscimi />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/trova" element={<Cerca />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profilo" element={<Profilo />} />
-
         </Routes>
 
-    <Footer />  
+        
     </BrowserRouter>
     </div>
   );

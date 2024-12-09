@@ -1,38 +1,30 @@
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  return (
+    <div>
 
-        return (
+      <ul className="navbar-list d-flex justify-content-between">
 
-          <div className="navbar-container">
+        <div className="d-flex">
+          <li><Link to="/" className="navbar-home ms-5">ender</Link></li>
+        </div>
 
-            <ul className="navbar-list">
-              <li>
-                <Link to="/crea" className="navbar-single-list">Crea</Link>
-              </li>
-              <li>
-                <Link to="/trova" className="navbar-single-list">Trova</Link>
-              </li>
-              <li>
-                <Link to="/" className="navbar-home">HOME</Link>
-              </li>
-              <li>
-                <Link to="/stupiscimi" className="navbar-single-list">Stupiscimi</Link>
-              </li>
-              <li>
+        <div className="d-flex">
+          <li><Link to="/trova" className="navbar-single-list me-5">trova</Link></li>
+          <li><Link to="/crea" className="navbar-single-list me-5">crea</Link></li>
+          <li><Link to="/stupiscimi" className="navbar-single-list me-5">upgrade</Link></li>
+          <li><Link to="/login" className="navbar-single-list me-5"><img
+              src="https://static.vecteezy.com/system/resources/previews/036/594/092/non_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg"
+              alt="Profilo"
+              className="foto-profilo me-2"
+            />LOGIN</Link></li>
+          <li><Link to="/" className="navbar-home me-5">home</Link></li>
+        </div>
 
-                <Link to="/login" className="navbar-single-list">
-                              <img
-        src="https://static.vecteezy.com/system/resources/previews/036/594/092/non_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg"
-        alt="Profilo"
-        className="foto-profilo me-2"
-    />
-                Login
-                </Link>
-              </li>
-            </ul>
-          </div>
-        );
-    }
+      </ul>
+    </div>
+  );
+};
 
-    export default NavBar
+export default NavBar;

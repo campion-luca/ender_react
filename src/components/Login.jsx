@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import test from '../assets/sfondo.webp'
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,7 +12,14 @@ const Login = () => {
         nome: '',
         cognome: '',
         nickname: '',
-    });
+    })
+    const backGroundStyle = {
+        backgroundImage: `url(${test})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+        margin: 0
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -72,7 +80,8 @@ const Login = () => {
     };
 
     return (
-        <div className="container mt-5">
+        <div style={backGroundStyle}>
+        <div className="container pt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6">
                     <div className="card">
@@ -177,6 +186,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

@@ -3,7 +3,6 @@
 
 *{
   font-family: 'Roboto', sans-serif;
-  background-color: #000;
 }
 
 .App {
@@ -47,6 +46,14 @@
 
 
 
+.bg-default {
+  background-color: #000;
+  height: 100vh;
+}
+.bg-default-2 {
+  background-color: #000;
+}
+
 /* ----------------------------------------------------------------------- */
 /*  ------------------------------ NAV BAR ------------------------------  */
 /************ NAV BAR LIST ************/
@@ -82,7 +89,7 @@
   /*  ------------------------------ BODY ------------------------------  */
   .body-text {
     text-align: center;
-    padding: 10px 170px;
+    padding: 10px;
     color: #ffffff;
     font-size: 1.2em;
   }
@@ -109,6 +116,11 @@
     color: #ffffff;
     font-size: 12em;
     padding-top: 25px;
+  }
+
+  .body-img {
+    width: 15%;
+    object-position: 50% 50%;
   }
 
     /*  ------------------------------ SEPARATORE ------------------------------  */
@@ -181,5 +193,34 @@
       ul li:hover::before {
         scale: 1;
         translate: 0;
+      }
+
+
+      /* -------------------------- MAPS --------------------------  */
+      /* .map {
+        height: 180px;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      } */
+
+      .leaflet-container {
+        height: 600px;
+        box-sizing: border-box;
+        width: 40%;
+        margin: 0 auto;
+      }
+
+      .cluster-icon {
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        background-color: #ffffffc6;
+        transform: translate(-25%, -25%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 900;
+        font-size: 1.5rem;
       }
       

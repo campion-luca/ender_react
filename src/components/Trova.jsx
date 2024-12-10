@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Container, Row, Col, Spinner, Alert, Card, ListGroup } from 'react-bootstrap'
-import test from '../assets/creazione.webp'
+import MapsTest from "./MapsTest"
 
 
 const Trova = () => {
@@ -8,13 +8,7 @@ const Trova = () => {
     const [event, setEvent] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
-    const backGroundStyle = {
-      backgroundImage: `url(${test})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      minHeight: '100vh',
-      margin: 0
-  };
+    
 
     useEffect(() => {
         fetchEvent()
@@ -44,12 +38,12 @@ const Trova = () => {
 
     return (
         
-      <div style={backGroundStyle}>
+      <div>
 
 <Container>
       <Row className="justify-content-center mb-4">
         <Col xs={12} md={8} lg={6}>
-          <h2 className="text-center mb-3">Prenotazioni esistenti</h2>
+          <h2 className="text-center mb-3 body-title">Eventi</h2>
           <div className="d-flex justify-content-center mb-3">
             {isLoading && <Spinner animation="border" variant="info" />}
             {isError && (
@@ -94,6 +88,9 @@ const Trova = () => {
         </Col>
       </Row>
     </Container>
+
+
+    <MapsTest />
 
     </div>
     )

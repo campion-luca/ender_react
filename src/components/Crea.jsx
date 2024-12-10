@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap'
-import test from '../assets/sfondo.webp'
 
 const Crea = () => {
 
@@ -13,15 +12,7 @@ const Crea = () => {
         dataEvento: '',
         luogo: '',
         autore: '',
-        })
-
-        const backGroundStyle = {
-          backgroundImage: `url(${test})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '100vh',
-          margin: 0
-      };
+        });
 
 
     const handleChange = (e, property) => {
@@ -69,11 +60,11 @@ const Crea = () => {
 
 
     return(
-      <div style={backGroundStyle}>
+      <div>
     <Container>
       <Row className="justify-content-center mb-4">
         <Col xs={12} md={6}>
-          <h2 className="text-center mb-3">Crea il tuo evento!</h2>
+          <h2 className="text-center mb-3 body-title">Crea</h2>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">

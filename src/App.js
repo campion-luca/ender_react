@@ -3,13 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css' // import di bootstrap
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import Footer from './components/Footer';
 import Crea from './components/Crea';
-import Stupiscimi from './components/Stupiscimi';
 import Contact from './components/Contact';
 import Trova from './components/Trova'
 import Login from './components/Login'
 import Profilo from './components/Profilo'
+import Upgrade from './components/Upgrade';
 
 function App() {
   return (
@@ -27,11 +26,11 @@ function App() {
         <Route path="/profilo" element={<Profilo />} />  {/* ME / COMPONENT */}
 
         {/* DA FARE */}
-        <Route path="/stupiscimi" element={<Stupiscimi />} />
+        <Route path="/stupiscimi" element={<Upgrade />} />
         <Route path="/contact" element={<Contact />} />
         </Routes>
 
-        
+
     </BrowserRouter>
     </div>
   );

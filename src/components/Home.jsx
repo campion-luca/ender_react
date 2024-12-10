@@ -1,14 +1,15 @@
+import immagine from "../assets/cosè.jpg";
+import MapsTest from "./MapsTest";
+
 const Home = () => {
   return (
-    <div>
-      {/* APERTURA BODY */}
+    <div className="bg-default-2">{/* APERTURA BODY */}
+      
+      <h1 className="body-title">Ender</h1>
 
-      <div>
-        {/* DIV INTRODUZIONE */}
+      <p className="body-text-left">Cos'è Ender?</p>
 
-        <h1 className="body-title">Ender</h1>
-
-        <p className="body-text-left">Cos'è Ender?</p>
+      <div>{/* DIV INTRODUZIONE */}
 
         <p className="body-text">
           <i>
@@ -29,6 +30,10 @@ const Home = () => {
             immergere in culture ed eventi altrimenti <b>sconosciuti</b>.
           </i>
         </p>
+
+        {/* <img src={immagine} alt="cos'è Ender?" className="body-img" /> */}
+        <div className="body-img"></div>
+
       </div>
 
       <div class="separatore">
@@ -110,6 +115,7 @@ const Home = () => {
           </i>
         </p>
       </div>
+
     </div>
   );
 };

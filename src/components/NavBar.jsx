@@ -11,7 +11,7 @@ const NavBar = () => {
     password: '',
 });
 
-// fetch per controllare il login e mettere foto + profilo
+// fetch per controllare il login e mettere foto + profilo ---------------------
 const location = useLocation();
 
 useEffect(() => {

@@ -11,6 +11,7 @@ const Profile = () => {
         email: '',
         fotoProfilo: '',
         password: '',
+        role: 'USER',
     });
     const [isEditing, setIsEditing] = useState(false);
 

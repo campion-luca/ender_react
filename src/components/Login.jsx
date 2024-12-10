@@ -12,6 +12,7 @@ const Login = () => {
         cognome: '',
         nickname: '',
         fotoProfilo: '', // Nuovo campo
+        role: 'USER' // Nuovo campo
     });
 
 
@@ -49,9 +50,11 @@ const Login = () => {
     // ----------------------------------------------------------
 
 
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+        console.log(formData, "Riempimento dati da passare")
     };
 
     const handleSubmit = async (e) => {
@@ -68,6 +71,7 @@ const Login = () => {
                 cognome: formData.cognome,
                 nickname: formData.nickname,
                 fotoProfilo: formData.fotoProfilo, // Nuovo campo
+                role: formData.role // Nuovo campo
             }),
         };
 

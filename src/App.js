@@ -10,6 +10,7 @@ import Login from './components/Login'
 import Profilo from './components/Profilo'
 import Upgrade from './components/Upgrade';
 
+
 function App() {
   return (
     <div className="bg-default">

@@ -9,7 +9,7 @@ const Profile = () => {
         cognome: '',
         nickname: '',
         email: '',
-        photoUrl: '',
+        fotoProfilo: '',
         password: '',
     });
     const [isEditing, setIsEditing] = useState(false);
@@ -51,30 +51,16 @@ const Profile = () => {
         setUserData({ ...userData, [name]: value });
     };
 
-    const handleEditToggle = () => {
-    //     if(isEditing) {
-    //         const token = localStorage.getItem('token');
-    //         try {
-    //             const response = await fetch('http://localhost:3001/utenti/me', {
-    //                 method: 'PUT',
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                     'Authorization': `Bearer ${token}`,
-    //                 },
-    //                 body: JSON.stringify(userData),
-    //             });
-    //             if(!response.ok) {
-    //                 throw new Error('Errore durante l\'aggiornamento dei dati');
-    //             }
-    //             const updatedData = await response.json();
-    //             setUserData(updatedData);
-    //         // alert('Dati aggiornati con successo!');
+        // Funzione per il logout
+        const handleLogout = () => {
+            console.log("funziona Luca")
+            localStorage.removeItem('token');
+            navigate('/login');
+            window.location.reload();
+        }
+        // ----------------------------------------------------------
 
-    //     } catch (error) {
-    //         console.error(error);
-    //         alert('Errore: ' + error.message);
-    //     }
-    // }
+    const handleEditToggle = () => {
         setIsEditing(!isEditing);
     };
 
@@ -116,99 +102,108 @@ const Profile = () => {
 
     return (
         <div className="container mt-5">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header text-center">
-                            <h3>Profilo</h3>
-                        </div>
-                        <div className="card-body">
-                            <form onSubmit={handleUpdate}>
-                                <div className="mb-3">
-                                    <img
-                                        src={userData.photoUrl || 'https://via.placeholder.com/150'}
-                                        alt="Foto Profilo"
-                                        className="img-fluid rounded-circle mb-3"
-                                        style={{ width: '150px', height: '150px' }}
+        <div className="row justify-content-center">
+            <div className="col-md-8">
+                <div className="card">
+                    <div className="card-header text-center">
+                        <h3>Profilo</h3>
+                    </div>
+                    <div className="card-body">
+                        <form onSubmit={handleUpdate}>
+                            <div className="mb-3">
+                                <img
+                                    src={userData.fotoProfilo || 'https://via.placeholder.com/150'}
+                                    alt="Foto Profilo"
+                                    className="img-fluid rounded-circle mb-3"
+                                    style={{ width: '150px', height: '150px' }}
+                                />
+                            </div>
+
+                            {/* NOME */}
+                            <div className="mb-3">
+                                <label htmlFor="nome" className="form-label">Nome</label>
+                                {isEditing ? (
+                                    <input
+                                        type="text"
+                                        id="nome"
+                                        name="nome"
+                                        className="form-control"
+                                        value={userData.nome}
+                                        onChange={handleInputChange}
+                                        required
                                     />
-                                </div>
+                                ) : (
+                                    <p>{userData.nome}</p>
+                                )}
+                            </div>
 
-                        {/* NOME */}
-                                <div className="mb-3">
-                                    <label htmlFor="nome" className="form-label">Nome</label>
-                                    {isEditing ? (
-                                        <input
-                                            type="text"
-                                            id="nome"
-                                            name="nome"
-                                            className="form-control"
-                                            value={userData.nome}
-                                            onChange={handleInputChange}
-                                            required
-                                        />
-                                    ) : (
-                                        <p>{userData.nome}</p>
-                                    )}
-                                </div>
+                            {/* COGNOME */}
+                            <div className="mb-3">
+                                <label htmlFor="cognome" className="form-label">Cognome</label>
+                                {isEditing ? (
+                                    <input
+                                        type="text"
+                                        id="cognome"
+                                        name="cognome"
+                                        className="form-control"
+                                        value={userData.cognome}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                ) : (
+                                    <p>{userData.cognome}</p>
+                                )}
+                            </div>
 
-                        {/* COGNOME */}
-                                <div className="mb-3">
-                                    <label htmlFor="cognome" className="form-label">Cognome</label>
-                                    {isEditing ? (
-                                        <input
-                                            type="text"
-                                            id="cognome"
-                                            name="cognome"
-                                            className="form-control"
-                                            value={userData.cognome}
-                                            onChange={handleInputChange}
-                                            required
-                                        />
-                                    ) : (
-                                        <p>{userData.cognome}</p>
-                                    )}
-                                </div>
+                            {/* NICKNAME */}
+                            <div className="mb-3">
+                                <label htmlFor="nickname" className="form-label">Nickname</label>
+                                {isEditing ? (
+                                    <input
+                                        type="text"
+                                        id="nickname"
+                                        name="nickname"
+                                        className="form-control"
+                                        value={userData.nickname}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                ) : (
+                                    <p>{userData.nickname}</p>
+                                )}
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="email" className="form-label">Email</label>
+                                <p>{userData.email}</p>
+                            </div>
 
-                        {/* NICKNAME */}
-                                <div className="mb-3">
-                                    <label htmlFor="nickname" className="form-label">Nickname</label>
-                                    {isEditing ? (
-                                        <input
-                                            type="text"
-                                            id="nickname"
-                                            name="nickname"
-                                            className="form-control"
-                                            value={userData.nickname}
-                                            onChange={handleInputChange}
-                                            required
-                                        />
-                                    ) : (
-                                        <p>{userData.nickname}</p>
-                                    )}
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">Email</label>
-                                    <p>{userData.email}</p>
-                                </div>
-
-                                <div className="text-center">
-                                    {isEditing ? (
-                                        <button type="button" className="btn btn-success me-2" onClick={handleUpdate}>
-                                            Salva
-                                        </button>
-                                    ) : (
-                                        <button type="button" className="btn btn-primary" onClick={handleEditToggle}>
-                                            Modifica
-                                        </button>
-                                    )}
-                                </div>
-                            </form>
-                        </div>
+                            <div className="text-center">
+                                {isEditing ? (
+                                    <button type="button" className="btn btn-success me-2" onClick={handleUpdate}>
+                                        Salva
+                                    </button>
+                                ) : (
+                                    <button type="button" className="btn btn-primary" onClick={handleEditToggle}>
+                                        Modifica
+                                    </button>
+                                )}
+                            </div>
+                        </form>
+                    </div>
+                    <div className="card-footer text-center">
+                        <button
+                            type="button"
+                            className="btn btn-danger"
+                            onClick={handleLogout}
+                        >
+                            Logout
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    );
+    </div>
+);
 };
 
 export default Profile;

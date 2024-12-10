@@ -1,6 +1,15 @@
 import immagine from "../assets/cosè.jpg";
 import MapsTest from "./MapsTest";
 
+
+
+
+
+
+
+
+
+
 const Home = () => {
   return (
     <div className="bg-default-2">{/* APERTURA BODY */}

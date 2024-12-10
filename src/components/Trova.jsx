@@ -38,7 +38,7 @@ const Trova = () => {
 
     return (
         
-      <div>
+      <div className="bg-default-2">
 
 <Container>
       <Row className="justify-content-center mb-4">

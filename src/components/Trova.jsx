@@ -14,7 +14,7 @@ const Trova = () => {
         fetchEvent()
     }, [])
 
-
+// FUNZIONE PER TROVARE TUTTI GLI EVENTI
     const fetchEvent = () => {
         fetch('http://localhost:3001/eventi')
         .then((response) => {
@@ -64,7 +64,7 @@ const Trova = () => {
               {event.map((res) => (
                 <Col xs={12} md={6} lg={4} key={res.id} className="mb-4">
                   <Card>
-                    <Card.Img variant="top" src="https://via.placeholder.com/150" alt="Immagine evento" />
+                    <Card.Img variant="top" src={res.fotoEvento} alt="Immagine evento" />
                     <Card.Body>
                       <Card.Title>{res.nomeEvento}</Card.Title>
                       <Card.Text>

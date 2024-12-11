@@ -86,7 +86,7 @@ const NavBar = () => {
           )}
 
           <li>
-            <Link to="/stupiscimi" className="navbar-single-list me-5">
+            <Link to="/upgrade" className="navbar-single-list me-5">
               upgrade
             </Link>
           </li>

@@ -27,7 +27,7 @@ function App() {
         <Route path="/profilo" element={<Profilo />} />  {/* ME / COMPONENT */}
 
         {/* DA FARE */}
-        <Route path="/stupiscimi" element={<Upgrade />} />
+        <Route path="/upgrade" element={<Upgrade />} />
         <Route path="/contact" element={<Contact />} />
         </Routes>
 

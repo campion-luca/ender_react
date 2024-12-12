@@ -1,13 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
-  Alert,
-  FormGroup,
-} from "react-bootstrap";
+import { Container, Row, Col, Form, Button, FormGroup } from "react-bootstrap";
 
 const Crea = () => {
   const token = localStorage.getItem("token");
@@ -123,14 +115,17 @@ const Crea = () => {
         alert(err);
       });
   };
-// --------------------------------------------------------------
+  // --------------------------------------------------------------
 
   return (
-    <div>
-      <Container>
+    <div className="form-sfondo">
+      <h2 className="text-center mb-3 body-title">Crea</h2>
+
+      
+      <Container className="form-container">
         <Row className="justify-content-center mb-4">
           <Col xs={12} md={6}>
-            <h2 className="text-center mb-3 body-title">Crea</h2>
+            
 
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
@@ -146,6 +141,7 @@ const Crea = () => {
                     });
                   }}
                   value={event.nome}
+                  className="form-crea"
                 />
               </Form.Group>
 
@@ -159,6 +155,7 @@ const Crea = () => {
                     handleChange(e, "descrizione");
                   }}
                   value={event.descrizione}
+                  className="form-crea"
                 />
               </Form.Group>
 
@@ -167,7 +164,7 @@ const Crea = () => {
               <FormGroup className="mb-3">
                 <Form.Label>Metodologia d'accesso</Form.Label>
                 <select
-                  className="form-select"
+                  className="form-select form-crea"
                   value={event.tipoEvento}
                   onChange={(e) => handleChange(e, "tipoEvento")}
                 >
@@ -198,6 +195,7 @@ const Crea = () => {
                     step="0.01" // accetta solo DOUBLE !
                     min="0" // non GRATIS
                     required
+                    className="form-crea"
                     onChange={(e) => {
                       handleChange(e, "prezzo");
                     }}
@@ -214,6 +212,7 @@ const Crea = () => {
                   <Form.Control
                     type="url"
                     placeholder="link"
+                    className="form-crea"
                     onChange={(e) => {
                       setEvent((prevEvent) => ({
                         ...prevEvent,
@@ -238,6 +237,7 @@ const Crea = () => {
                   <Form.Control
                     type="text"
                     placeholder="Es: solo padroni di cani..."
+                    className="form-crea"
                     onChange={(e) => {
                       setEvent((prevEvent) => ({
                         ...prevEvent,
@@ -257,6 +257,7 @@ const Crea = () => {
                 <Form.Control
                   type="datetime-local"
                   required
+                  className="form-crea"
                   onChange={(e) => {
                     handleChange(e, "dataEvento");
                   }}
@@ -270,6 +271,7 @@ const Crea = () => {
                   type="text"
                   placeholder="Luogo dell'evento?"
                   required
+                  className="form-crea"
                   onChange={(e) => {
                     setEvent({
                       ...event,
@@ -285,35 +287,37 @@ const Crea = () => {
                 <Form.Control
                   type="text"
                   placeholder="Autore dell'evento"
+                  className="form-crea"
                   readOnly // Rende il campo non modificabile
                   value={userData.nickname} // Usa il valore ricevuto dalla fetch
                 />
               </Form.Group>
 
-
               <Form.Group className="mb-3">
-            <Form.Label>URL Immagine Profilo Evento</Form.Label>
-            <Form.Control
-              type="url"
-              placeholder="Inserisci l'URL dell'immagine"
-              required
-              onChange={(e) => {
-                setEvent({
-                  ...event,
-                  fotoEvento: e.target.value,
-                });
-              }}
-              value={event.fotoEvento}
-            />
-          </Form.Group>
+                <Form.Label>URL Immagine Profilo Evento</Form.Label>
+                <Form.Control
+                  type="url"
+                  placeholder="Inserisci l'URL dell'immagine"
+                  required
+                  className="form-crea"
+                  onChange={(e) => {
+                    setEvent({
+                      ...event,
+                      fotoEvento: e.target.value,
+                    });
+                  }}
+                  value={event.fotoEvento}
+                />
+              </Form.Group>
 
-              <Button variant="success" type="submit">
+              <Button type="submit" className="button-crea">
                 Invia!
               </Button>
             </Form>
           </Col>
         </Row>
       </Container>
+      
     </div>
   );
 };

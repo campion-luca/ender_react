@@ -63,11 +63,11 @@ const NavBar = () => {
 
     <div className="navbar-container">
 
-      <ul className="navbar-list d-flex justify-content-center">
+      <ul className="navbar-list d-flex justify-content-around">
 
           <li className="navbar-li">
-            <Link to="/trova" className="navbar-single-list me-5">
-              trova
+            <Link to="/upgrade" className="navbar-single-list-laterale me-5">
+              upgrade
             </Link>
           </li>
 
@@ -79,13 +79,22 @@ const NavBar = () => {
             </li>
           )}
 
+
           <li className="navbar-li">
-            <Link to="/upgrade" className="navbar-single-list me-5">
-              upgrade
+            <Link to="/" className="navbar-home me-5">
+              home
             </Link>
           </li>
+
           <li className="navbar-li">
-            <Link to="/login" className="navbar-single-list me-5">
+            <Link to="/trova" className="navbar-single-list me-5">
+              trova
+            </Link>
+          </li>
+
+
+          <li className="navbar-li">
+            <Link to="/login" className="navbar-single-list-laterale me-5">
               <img
                 src={
                   userData.fotoProfilo ||
@@ -95,11 +104,6 @@ const NavBar = () => {
                 className="foto-profilo me-2"
               />
               {userData.fotoProfilo ? "profilo" : "login"}
-            </Link>
-          </li>
-          <li className="navbar-li">
-            <Link to="/" className="navbar-home me-5">
-              home
             </Link>
           </li>
 

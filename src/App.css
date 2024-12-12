@@ -45,7 +45,7 @@
 }
 
 .bg-default {
-  background-color: #e44b5d;
+  background-color: #e44b5db7;
   height: 100vh;
 }
 .bg-default-2 {
@@ -318,4 +318,122 @@ ul li:hover::before {
 .upgrade-label {
   color: #000000;
   font-weight: 600;
+}
+/* -------------------------- PROFILO --------------------------  */
+.button-delete {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ) !important; /* Bianco opaco (quasi trasparente) */
+  color: #000000 !important; /* Testo nero */
+  border: 2px solid #000000 !important; /* Bordo nero sottile */
+  border-radius: 0 !important; /* Angoli squadrati */
+  padding: 10px 20px !important; /* Spaziatura interna */
+  font-size: 16px !important; /* Dimensione del testo */
+  cursor: pointer !important; /* Cambia il cursore quando si passa sopra il bottone */
+  transition: background-color 0.3s ease, color 0.3s ease !important; /* Animazione per hover */
+}
+.button-modifica {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ) !important; /* Bianco opaco (quasi trasparente) */
+  color: #000000 !important; /* Testo nero */
+  border: 2px solid #000000 !important; /* Bordo nero sottile */
+  border-radius: 0 !important; /* Angoli squadrati */
+  padding: 10px 20px !important; /* Spaziatura interna */
+  font-size: 16px !important; /* Dimensione del testo */
+  cursor: pointer !important; /* Cambia il cursore quando si passa sopra il bottone */
+  transition: background-color 0.3s ease, color 0.3s ease !important; /* Animazione per hover */
+}
+.button-logout {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ) !important; /* Bianco opaco (quasi trasparente) */
+  color: #000000 !important; /* Testo nero */
+  border: 2px solid #000000 !important; /* Bordo nero sottile */
+  border-radius: 0 !important; /* Angoli squadrati */
+  padding: 10px 20px !important; /* Spaziatura interna */
+  font-size: 16px !important; /* Dimensione del testo */
+  cursor: pointer !important; /* Cambia il cursore quando si passa sopra il bottone */
+  transition: background-color 0.3s ease, color 0.3s ease !important; /* Animazione per hover */
+}
+.button-organizzatore {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ) !important; /* Bianco opaco (quasi trasparente) */
+  color: #000000 !important; /* Testo nero */
+  border: 2px solid #000000 !important; /* Bordo nero sottile */
+  border-radius: 0 !important; /* Angoli squadrati */
+  padding: 10px 20px !important; /* Spaziatura interna */
+  font-size: 16px !important; /* Dimensione del testo */
+  cursor: pointer !important; /* Cambia il cursore quando si passa sopra il bottone */
+  transition: background-color 0.3s ease, color 0.3s ease !important; /* Animazione per hover */
+}
+
+.button-delete:hover {
+  background-color: rgba(213, 0, 0, 0.8) !important; /* Sfondo nero opaco al passaggio del mouse */
+  color: #ffffff !important; /* Testo bianco */
+}
+.button-organizzatore:hover {
+  background-color: rgba(46, 174, 0, 0.8) !important; /* Sfondo nero opaco al passaggio del mouse */
+  color: #ffffff !important; /* Testo bianco */
+}
+.button-logout:hover {
+  background-color: rgba(137, 0, 0, 0.8) !important; /* Sfondo nero opaco al passaggio del mouse */
+  color: #ffffff !important; /* Testo bianco */
+}.button-modifica:hover {
+  background-color: rgba(0, 0, 0, 0.8) !important; /* Sfondo nero opaco al passaggio del mouse */
+  color: #ffffff !important; /* Testo bianco */
+}
+.profilo-sfondo {
+  background-image: url("./assets/chi.jpg"); /* Sostituisci con il percorso dell'immagine */
+  background-size: cover; /* Rende l'immagine di sfondo che copre tutto il div */
+  background-position: center; /* Centra l'immagine nel div */
+  background-repeat: no-repeat; /* Impedisce la ripetizione dell'immagine */
+  height: 100vh; /* Imposta l'altezza del div (opzionale) */
+}
+.profilo-container {
+  padding-bottom: 20px !important;
+  border-top: 0px !important;
+  background-color: #ebebeb35 !important;
+  padding-top: 20px !important;
+}
+.profilo-text {
+  font-weight: 800;
+  font-size: 1.7em;
+}
+.profilo-text-sotto {
+  font-size: 1.4em;
+  font-weight: 500;
+}
+.profilo-password {
+  background-color: #222222 !important; /* Sfondo scuro */
+  color: #ffffff !important; /* Testo bianco */
+  border-radius: 0 !important; /* Rimuove gli angoli arrotondati */
+  border: 1px solid #ffffff !important; /* (Opzionale) Bordo bianco sottile */
+  padding: 10px !important; /* Aggiunge un po' di spazio interno */
+  font-size: 16px !important; /* Dimensione del testo */
+}
+.form-profilo {
+  background-color: #222222 !important; /* Sfondo scuro */
+  color: #ffffff !important; /* Testo bianco */
+  border-radius: 0 !important; /* Rimuove gli angoli arrotondati */
+  border: 1px solid #ffffff !important; /* (Opzionale) Bordo bianco sottile */
+  padding: 10px !important; /* Aggiunge un po' di spazio interno */
+  font-size: 16px !important; /* Dimensione del testo */
+}
+.form-profilo::placeholder {
+  color: #ffffff !important; /* Placeholder bianco */
+  opacity: 0.8 !important; /* (Opzionale) Riduce la trasparenza del placeholder */
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col, Card, Form } from "react-bootstrap";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -177,190 +178,184 @@ const Profile = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          <div className="card">
-            <div className="card-header text-center">
-              <h3>Profilo</h3>
-            </div>
-            <div className="card-body">
-              <form onSubmit={handleUpdate}>
-                <div className="mb-3">
-                  <img
-                    src={
-                      userData.fotoProfilo || "https://via.placeholder.com/150"
-                    }
-                    alt="Foto Profilo"
-                    className="img-fluid rounded-circle mb-3"
-                    style={{ width: "150px", height: "150px" }}
-                  />
-                </div>
 
-                {/* URL Foto Profilo */}
-                <div className="mb-3">
-                  <label htmlFor="fotoProfilo" className="form-label">
-                    URL Foto Profilo
-                  </label>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      id="fotoProfilo"
-                      name="fotoProfilo"
-                      className="form-control"
-                      value={userData.fotoProfilo}
-                      onChange={handleInputChange}
-                      required
+    <div className="profilo-sfondo">
+
+    <h2 className="text-center mb-2 body-title">Profilo</h2>
+
+    <Container>
+        <Row className="justify-content-center">
+          <Col md={8}>
+
+            <Card className="profilo-container">
+
+              <Card.Body>
+                <Form onSubmit={handleUpdate}>
+                  {/* URL Foto Profilo e Foto Profilo sulla stessa riga */}
+                  <Row className="mb-3 d-flex justify-content-between align-items-center">
+                    <Col xs={9}>
+                      <Form.Label htmlFor="fotoProfilo" className="profilo-text">URL Foto Profilo</Form.Label>
+                      {isEditing ? (
+                        <Form.Control
+                          type="text"
+                          id="fotoProfilo"
+                          name="fotoProfilo"
+                          value={userData.fotoProfilo}
+                          onChange={handleInputChange}
+                          required
+                          className="form-profilo"
+                        />
+                      ) : (
+                        <p className="profilo-text-sotto">{userData.fotoProfilo}</p>
+                      )}
+                    </Col>
+                    <Col xs={3}>
+                      <img
+                        src={userData.fotoProfilo || "https://via.placeholder.com/150"}
+                        alt="Foto Profilo"
+                        className="img-fluid rounded-circle mb-3"
+                        style={{ width: "150px", height: "150px" }}
+                      />
+                    </Col>
+                  </Row>
+
+                  {/* Nome */}
+                  <Form.Group className="mb-3">
+                    <Form.Label htmlFor="nome" className="profilo-text">Nome</Form.Label>
+                    {isEditing ? (
+                      <Form.Control
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        value={userData.nome}
+                        onChange={handleInputChange}
+                        required
+                        className="form-profilo"
+                      />
+                    ) : (
+                      <p className="profilo-text-sotto">{userData.nome}</p>
+                    )}
+                  </Form.Group>
+
+                  {/* Cognome */}
+                  <Form.Group className="mb-3">
+                    <Form.Label htmlFor="cognome" className="profilo-text">Cognome</Form.Label>
+                    {isEditing ? (
+                      <Form.Control
+                        type="text"
+                        id="cognome"
+                        name="cognome"
+                        value={userData.cognome}
+                        onChange={handleInputChange}
+                        required
+                        className="form-profilo"
+                      />
+                    ) : (
+                      <p className="profilo-text-sotto">{userData.cognome}</p>
+                    )}
+                  </Form.Group>
+
+                  {/* Nickname */}
+                  <Form.Group className="mb-3">
+                    <Form.Label htmlFor="nickname" className="profilo-text">Nickname</Form.Label>
+                    {isEditing ? (
+                      <Form.Control
+                        type="text"
+                        id="nickname"
+                        name="nickname"
+                        value={userData.nickname}
+                        onChange={handleInputChange}
+                        required
+                        className="form-profilo"
+                      />
+                    ) : (
+                      <p className="profilo-text-sotto">{userData.nickname}</p>
+                    )}
+                  </Form.Group>
+
+                  {/* Email */}
+                  <Form.Group className="mb-3">
+                    <Form.Label htmlFor="email" className="profilo-text">Email</Form.Label>
+                    <p className="profilo-text-sotto">{userData.email}</p>
+                  </Form.Group>
+
+                  {/* Password */}
+                  <Form.Group className="mb-3">
+                    <Form.Label htmlFor="password" className="profilo-text">Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      id="password"
+                      value={userData.password}
+                      readOnly
+                      className="profilo-password"
                     />
-                  ) : (
-                    <p>{userData.fotoProfilo}</p>
-                  )}
-                </div>
+                  </Form.Group>
 
-                {/* NOME */}
-                <div className="mb-3">
-                  <label htmlFor="nome" className="form-label">
-                    Nome
-                  </label>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      id="nome"
-                      name="nome"
-                      className="form-control"
-                      value={userData.nome}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  ) : (
-                    <p>{userData.nome}</p>
-                  )}
-                </div>
-
-                {/* COGNOME */}
-                <div className="mb-3">
-                  <label htmlFor="cognome" className="form-label">
-                    Cognome
-                  </label>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      id="cognome"
-                      name="cognome"
-                      className="form-control"
-                      value={userData.cognome}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  ) : (
-                    <p>{userData.cognome}</p>
-                  )}
-                </div>
-
-                {/* NICKNAME */}
-                <div className="mb-3">
-                  <label htmlFor="nickname" className="form-label">
-                    Nickname
-                  </label>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      id="nickname"
-                      name="nickname"
-                      className="form-control"
-                      value={userData.nickname}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  ) : (
-                    <p>{userData.nickname}</p>
-                  )}
-                </div>
-
-                {/* EMAIL */}
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email
-                  </label>
-                  <p>{userData.email}</p>
-                </div>
-
-                {/* PASSWORD */}
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    className="form-control"
-                    value={userData.password}
-                    readOnly
-                  />
-                </div>
-
-                <div className="text-center">
-                  {isEditing ? (
-                    <>
+                  {/* Pulsanti nella stessa riga */}
+                  <div className="d-flex justify-content-between text-center">
+                    {isEditing ? (
+                      <>
+                        <button
+                          type="button"
+                          className="btn btn-success me-2 button-organizzatore"
+                          onClick={handleUpdate}
+                        >
+                          Salva
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-secondary button-logout"
+                          onClick={() => setIsEditing(false)}
+                        >
+                          Annulla
+                        </button>
+                      </>
+                    ) : (
                       <button
                         type="button"
-                        className="btn btn-success me-2"
-                        onClick={handleUpdate}
+                        className="btn btn-primary button-modifica"
+                        onClick={handleEditToggle}
                       >
-                        Salva
+                        Modifica
                       </button>
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        onClick={() => setIsEditing(false)}
-                      >
-                        Annulla
-                      </button>
-                    </>
-                  ) : (
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={handleEditToggle}
-                    >
-                      Modifica
-                    </button>
-                  )}
+                    )}
+                  </div>
+                </Form>
+              </Card.Body>
+
+              <Card.Footer className="text-center">
+                <div className="d-flex justify-content-between">
+                  <button
+                    type="button"
+                    className="btn btn-danger button-logout"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+
+                  <button
+                    type="button"
+                    className="btn btn-success button-organizzatore"
+                    onClick={handleRedirect}
+                  >
+                    Diventa organizzatore
+                  </button>
+
+                  <button
+                    type="button"
+                    className="btn btn-danger button-delete"
+                    onClick={handleDelete}
+                  >
+                    Cancella profilo
+                  </button>
                 </div>
-              </form>
-            </div>
-            <div className="card-footer text-center">
-              <button
-                type="button"
-                className="btn btn-danger"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
-            </div>
+              </Card.Footer>
 
-            <div>
-              <button
-                type="button"
-                className="btn btn-success"
-                onClick={handleRedirect}
-              >
-                Diventa organizzatore
-              </button>
-            </div>
+            </Card>
 
-            <div>
-              <button
-                type="button"
-                className="btn btn-danger"
-                onClick={handleDelete}
-              >
-                Cancella profilo
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

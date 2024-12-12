@@ -44,12 +44,14 @@
   }
 }
 
+/* SFONDO NAVBAR */
 .bg-default {
-  background-color: #e44b5db7;
+  background-image: url("./assets/perche.jpg");
   height: 100vh;
 }
+/* SFONDO HOME */
 .bg-default-2 {
-  background-color: #e44b5d;
+  background-color: #a50101;
 }
 .bg-default-black {
   background-color: #222222;
@@ -72,7 +74,7 @@
 .navbar-single-list {
   /* new */
   transition: color 0.2s;
-  color: #222222;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1.7em;
   padding: 20px 12px;
@@ -81,7 +83,7 @@
 .navbar-single-list-laterale {
   /* new */
   transition: color 0.2s;
-  color: #222222;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1.4em;
   padding: 20px 12px;
@@ -101,7 +103,7 @@
 .navbar-home {
   font-size: 2em;
   transition: color 0.2s;
-  color: #222222;
+  color: #ffffff;
   text-decoration: none;
   padding: 20px 12px;
 }

@@ -16,6 +16,7 @@ const Home = () => {
     setIsFlipped(!isFlipped); // Alterna tra "fronte" e "retro"
   };
 
+
   return (
     <div className="bg-default-2">
       {/* APERTURA BODY */}

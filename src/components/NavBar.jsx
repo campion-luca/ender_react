@@ -60,37 +60,31 @@ const NavBar = () => {
   // ----------------------------------------------------------------------------
 
   return (
-    <div>
-      <ul className="navbar-list d-flex justify-content-between">
-        <div className="d-flex">
-          <li>
-            <Link to="/" className="navbar-home ms-5">
-              ender
-            </Link>
-          </li>
-        </div>
 
-        <div className="d-flex">
-          <li>
+    <div className="navbar-container">
+
+      <ul className="navbar-list d-flex justify-content-center">
+
+          <li className="navbar-li">
             <Link to="/trova" className="navbar-single-list me-5">
               trova
             </Link>
           </li>
 
           {hasPermiss && (
-            <li>
+            <li className="navbar-li">
               <Link to="/crea" className="navbar-single-list me-5">
                 crea
               </Link>
             </li>
           )}
 
-          <li>
+          <li className="navbar-li">
             <Link to="/upgrade" className="navbar-single-list me-5">
               upgrade
             </Link>
           </li>
-          <li>
+          <li className="navbar-li">
             <Link to="/login" className="navbar-single-list me-5">
               <img
                 src={
@@ -103,13 +97,14 @@ const NavBar = () => {
               {userData.fotoProfilo ? "profilo" : "login"}
             </Link>
           </li>
-          <li>
+          <li className="navbar-li">
             <Link to="/" className="navbar-home me-5">
               home
             </Link>
           </li>
-        </div>
+
       </ul>
+
     </div>
   );
 };

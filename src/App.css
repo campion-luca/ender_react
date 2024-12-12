@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sacramento&display=swap'); /* LOGO FONT */
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sacramento&display=swap'); /* FONT DA USARE */
 *{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat','Roboto', sans-serif;
 }
 
 .App {
@@ -47,11 +47,14 @@
 
 
 .bg-default {
-  background-color: #000;
+  background-color: #E44B5D;
   height: 100vh;
 }
 .bg-default-2 {
-  background-color: #000;
+  background-color: #E44B5D;
+}
+.bg-default-black {
+  background-color: #222222;
 }
 
 /* ----------------------------------------------------------------------- */
@@ -59,17 +62,27 @@
 /************ NAV BAR LIST ************/
 .navbar-list {
   list-style: none;
-  padding-top: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-img {
+  width: 40%;
 }
 
   /************ NAV BAR SINGLE LIST ************/
   .navbar-single-list {
     /* new */
     transition: color 0.2s;
-    color: #d8d8d8;
+    color: #222222;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.8em;
     padding: 20px 12px;
+  }
+
+  .navbar-li {
+    display: flex;
+    align-items: center;
   }
 
   .navbar-center {
@@ -81,66 +94,73 @@
   .navbar-home {
     font-size: 1.5em;
     transition: color 0.2s;
-    color: #d8d8d8;
+    color: #222222;
     text-decoration: none;
     padding: 20px 12px;
+  }
+  /************ CONTAINER ************/
+  .navbar-container {
+    border-bottom: 2px solid black;
   }
 
   /*  ------------------------------ BODY ------------------------------  */
   .body-text {
-    text-align: center;
-    padding: 10px;
-    color: #ffffff;
+    color: #dedadacc;
     font-size: 1.2em;
+    z-index: 2;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .body-text-left {
     text-align: left;
     padding: 10px 170px;
-    color: #ffffff;
+    color: #222222;
     font-size: 1.4em;
     font-weight: bold;
+  }
+
+  .body-span-left {
+    border-bottom: 4px solid #222222;
+    padding-right: 100px;
+    font-size: 1.7em;
+  }
+
+  .body-span-right {
+    border-bottom: 4px solid #222222;
+    padding-left: 100px;
+    font-size: 1.7em;
   }
 
   .body-text-right {
     text-align: right;
     padding: 10px 170px;
-    color: #ffffff;
+    color: #222222;
     font-size: 1.4em;
     font-weight: bold;
   }
 
   .body-title {
     text-align: center;
-    font-family: 'Sacramento', 'Roboto', sans-serif;
-    color: #ffffff;
+    color: #222222;
     font-size: 12em;
     padding-top: 25px;
+    z-index: 3;
   }
 
   .body-img {
-    width: 15%;
-    object-position: 50% 50%;
+    border: 20px black;
+    border-radius: 20px;
   }
-
-    /*  ------------------------------ SEPARATORE ------------------------------  */
-
-    .separatore {
-      border-top: 5px solid #ffffff;
-      border-radius: 5px;
-      width: 15%;
-      height: auto;
-      margin: 0 auto;
-      margin-top: 3%;
-      width: 10%;
-    }
 
   /*  ------------------------------ FOOTER ------------------------------  */
   .footer-container {
     display: flex;
     list-style: none;
     justify-content: center;
-    color: #d8d8d8;
+    color: #222222;
   }
 
     /*  ------------------------------ FOTO PROFILO ------------------------------  */
@@ -157,7 +177,7 @@
         margin: 0;
         display: flex;
         text-transform: uppercase;
-        color: grey;
+        color: #222222;
       }
       
       ul li {
@@ -169,14 +189,14 @@
       }
       
       ul li:hover {
-        color: #ffffffc7;
+        color: #222222;
       }
       
       ul li:hover::before {
         content: "";
         position: absolute;
         inset: calc(100% - 3px) 0 0 0; /* 3px = the thickness */
-        background: #ffffffc7; /* the color */
+        background: #222222; /* the color */
         scale: 1;
         transition: .3s, translate 0s .3s;
       }
@@ -184,8 +204,8 @@
       ul li::before {
         content: "";
         position: absolute;
-        inset: calc(100% - 3px) 0 0 0; /* 3px = the thickness */
-        background: #ffffffc7; /* the color */
+        inset: calc(90% - 10px) 0 0 0; /* 3px = the thickness */
+        background: #222222; /* the color */
         scale: 0 1;
         transition: .3s, translate 0s .3s;
       }
@@ -223,4 +243,5 @@
         font-weight: 900;
         font-size: 1.5rem;
       }
-      
+
+      /* -------------------------- EFFETTO FLIP CARD --------------------------  */

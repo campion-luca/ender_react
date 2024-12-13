@@ -22,6 +22,7 @@ const Trova = () => {
     nickname: "",
   });
   const [showModal, setShowModal] = useState(false);
+  const [showMap, setShowMap] = useState(false);
   const [currentEvent, setCurrentEvent] = useState(null);
   const [updatedData, setUpdatedData] = useState({
     nome: "",
@@ -32,12 +33,18 @@ const Trova = () => {
     fotoEvento: "",
     autore: "",
   });
+
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchEvent();
   }, []);
 
+
+  // FUNZIONE PER MOSTRARE/NASCONDERE LA MAPPA
+  const handleShow = () => {
+    setShowMap(!showMap);
+  }
   // FETCH PER SCOPRIRE L'UTENTE ATTIVO/LOGGATO
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -171,191 +178,232 @@ const Trova = () => {
   // -----------------------------------------------------------------------
 
   return (
-    <div className="bg-default-2">
-      <Container>
-        <Row className="justify-content-center mb-4">
-          <Col xs={12} md={8} lg={6}>
-            <h2 className="text-center mb-3 body-title">Eventi</h2>
-            <div className="d-flex justify-content-center mb-3">
-              {isLoading && <Spinner animation="border" variant="info" />}
-              {isError && (
-                <Alert variant="danger">
-                  Oops! Qualcosa è andato storto 😱
-                  <i className="bi bi-exclamation-triangle"></i>
+    <div className="bg-trova">
+      <h2 className="text-center mb-3 body-title">Eventi</h2>
+
+      <div>
+        <div className="d-flex justify-content-center">
+        <Button onClick={handleShow} className="btn-stupiscimi">Sono indeciso</Button>
+        </div>
+
+        {showMap ?
+        
+        
+        (
+          <>
+
+          <Container>
+          <Row className="mb-4">
+            <Col xs={12} md={12} lg={12}>
+              <div className="d-flex justify-content-center mb-3">
+                {isLoading && <Spinner animation="border" variant="info" />}
+                {isError && (
+                  <Alert variant="danger">
+                    Oops! Qualcosa è andato storto 😱
+                    <i className="bi bi-exclamation-triangle"></i>
+                  </Alert>
+                )}
+              </div>
+              {isLoading || isError ? (
+                <></>
+              ) : event.length === 0 ? (
+                <Alert variant="info">
+                  Al momento non è presente nessuna prenotazione :(
                 </Alert>
+              ) : (
+                <Row>
+                  {event.map((res) => (
+  
+  
+  <Col xs={12} md={6} lg={4} key={res.id} className="mb-4">
+  <Card className="card-evento shadow">
+    
+    <Card.Body>
+  
+    <Card.Img
+      variant="top"
+      src={res.fotoEvento}
+      alt="Immagine evento"
+      className="card-img"
+    />
+      <Card.Text>
+        <span className="card-resp card-int">{res.nomeEvento}</span>
+      </Card.Text>
+      <Card.Text>
+        <span className="card-resp">
+        {typeof res.descrizione === "object"
+          ? JSON.stringify(res.descrizione)
+          : res.descrizione}</span>
+      </Card.Text>
+      <Card.Text>
+        <strong className="card-title">il</strong>{" "}
+        <span className="card-resp">
+        {res.dataEvento
+          ? new Date(res.dataEvento).toLocaleDateString()
+          : "Data non disponibile"}</span>
+      </Card.Text>
+      <Card.Text>
+        <strong className="card-title">Prezzo:</strong>{" "}
+        <span className="card-resp">
+        {typeof res.prezzo === "object"
+          ? JSON.stringify(res.prezzo)
+          : res.prezzo}{" "}€</span>
+      </Card.Text>
+      <Card.Text>
+        <strong className="card-title">Dove?</strong>{" "}
+        <span className="card-resp">
+        {typeof res.luogo === "object"
+          ? JSON.stringify(res.luogo)
+          : res.luogo}</span>
+      </Card.Text>
+      <Card.Text>
+        <strong className="card-title">Organizzato da</strong>{" "}
+        <span className="card-resp">
+        {typeof res.autore === "object"
+          ? JSON.stringify(res.autore.nome)
+          : res.autore}</span>
+      </Card.Text>
+    </Card.Body>
+  
+    <Card.Body className="text-center">
+      {res.autore.nome === userData.nickname && (
+        <div className="d-flex justify-content-between">
+          <Button
+            variant="danger"
+            className="card-button"
+            onClick={() => handleDelete(res.id)}
+          >
+            Elimina
+          </Button>
+          <Button
+            variant="warning"
+            className="card-button"
+            onClick={() => handleEdit(res.id)}
+          >
+            Modifica
+          </Button>
+        </div>
+      )}
+    </Card.Body>
+  </Card>
+  </Col>
+                  ))}
+                </Row>
               )}
-            </div>
-            {isLoading || isError ? (
-              <></>
-            ) : event.length === 0 ? (
-              <Alert variant="info">
-                Al momento non è presente nessuna prenotazione :(
-              </Alert>
-            ) : (
-              <Row>
-                {event.map((res) => (
-                  <Col xs={12} md={6} lg={4} key={res.id} className="mb-4">
-                    <Card>
-                      <Card.Img
-                        variant="top"
-                        src={res.fotoEvento}
-                        alt="Immagine evento"
-                      />
-                      <Card.Body>
-                        <Card.Title>{res.nomeEvento}</Card.Title>
-                        <Card.Text>
-                          <strong>Descrizione:</strong>{" "}
-                          {typeof res.descrizione === "object"
-                            ? JSON.stringify(res.descrizione)
-                            : res.descrizione}
-                        </Card.Text>
-                        <Card.Text>
-                          <strong>Autore:</strong>{" "}
-                          {typeof res.autore === "object"
-                            ? JSON.stringify(res.autore.nome)
-                            : res.autore}
-                        </Card.Text>
-                        <Card.Text>
-                          <strong>Data:</strong>{" "}
-                          {res.dataEvento
-                            ? new Date(res.dataEvento).toLocaleDateString()
-                            : "Data non disponibile"}
-                        </Card.Text>
-                        <Card.Text>
-                          <strong>Prezzo:</strong>{" "}
-                          {typeof res.prezzo === "object"
-                            ? JSON.stringify(res.prezzo)
-                            : res.prezzo}{" "}
-                          €
-                        </Card.Text>
-                        <Card.Text>
-                          <strong>Luogo:</strong>{" "}
-                          {typeof res.luogo === "object"
-                            ? JSON.stringify(res.luogo)
-                            : res.luogo}
-                        </Card.Text>
-
-                        {res.autore.nome === userData.nickname && (
-                          <div className="d-flex justify-content-between">
-                            <Button
-                              variant="danger"
-                              onClick={() => handleDelete(res.id)}
-                            >
-                              Elimina
-                            </Button>
-                            <Button
-                              variant="warning"
-                              onClick={() => handleEdit(res.id)}
-                            >
-                              Modifica
-                            </Button>
-                          </div>
-                        )}
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            )}
-          </Col>
-        </Row>
-      </Container>
-
-      <MapsTest />
-
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modifica Evento</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="formNomeEvento">
-              <Form.Label>Nome Evento</Form.Label>
-              <Form.Control
-                type="text"
-                value={updatedData.nome}
-                onChange={(e) =>
-                  setUpdatedData({ ...updatedData, nomeEvento: e.target.value })
-                }
-              />
-            </Form.Group>
-            <Form.Group controlId="formDescrizione">
-              <Form.Label>Descrizione</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                value={updatedData.descrizione}
-                onChange={(e) =>
-                  setUpdatedData({
-                    ...updatedData,
-                    descrizione: e.target.value,
-                  })
-                }
-              />
-            </Form.Group>
-            <Form.Group controlId="formDataEvento">
-              <Form.Label>Data Evento</Form.Label>
-              <Form.Control
-                type="date"
-                value={updatedData.dataEvento}
-                onChange={(e) =>
-                  setUpdatedData({ ...updatedData, dataEvento: e.target.value })
-                }
-              />
-            </Form.Group>
-            <Form.Group controlId="formPrezzo">
-              <Form.Label>Prezzo</Form.Label>
-              <Form.Group controlId="formPrezzo">
-                <Form.Label>Prezzo</Form.Label>
+            </Col>
+          </Row>
+        </Container>
+  
+        
+  
+        <Modal show={showModal} onHide={() => setShowModal(false)}>
+  
+          <Modal.Header closeButton className="trova-modal">
+          
+            <Modal.Title>Modifica Evento</Modal.Title>
+          </Modal.Header>
+  
+          <Modal.Body className="trova-modal">
+            <Form>
+              <Form.Group controlId="formNomeEvento">
+                <Form.Label>Nome Evento</Form.Label>
                 <Form.Control
-                  type="number"
-                  value={updatedData.prezzo}
+                  type="text"
+                  value={updatedData.nome}
+                  className="form-crea"
+                  onChange={(e) =>
+                    setUpdatedData({ ...updatedData, nomeEvento: e.target.value })
+                  }
+                />
+              </Form.Group>
+              <Form.Group controlId="formDescrizione">
+                <Form.Label>Descrizione</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  value={updatedData.descrizione}
+                  className="form-crea"
                   onChange={(e) =>
                     setUpdatedData({
                       ...updatedData,
-                      prezzo: parseFloat(e.target.value),
+                      descrizione: e.target.value,
                     })
                   }
                 />
               </Form.Group>
-            </Form.Group>
-            <Form.Group controlId="formLuogo">
-              <Form.Label>Luogo</Form.Label>
-              <Form.Control
-                type="text"
-                value={updatedData.luogo}
-                onChange={(e) =>
-                  setUpdatedData({ ...updatedData, luogo: e.target.value })
-                }
-              />
-            </Form.Group>
-            <Form.Group controlId="formFotoEvento">
-              <Form.Label>Foto Evento (URL)</Form.Label>
-              <Form.Control
-                type="text"
-                value={updatedData.fotoEvento}
-                onChange={(e) =>
-                  setUpdatedData({ ...updatedData, fotoEvento: e.target.value })
-                }
-              />
-            </Form.Group>
-            <Form.Group controlId="formAutore">
-              <Form.Label>Autore</Form.Label>
-              <Form.Control type="text" value={updatedData.autore} readOnly />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Annulla
-          </Button>
-          <Button variant="primary" onClick={handleUpdateSubmit}>
-            Salva Modifiche
-          </Button>
-        </Modal.Footer>
-      </Modal>
+              <Form.Group controlId="formDataEvento">
+                <Form.Label>Data Evento</Form.Label>
+                <Form.Control
+                  type="date"
+                  value={updatedData.dataEvento}
+                  className="form-crea"
+                  onChange={(e) =>
+                    setUpdatedData({ ...updatedData, dataEvento: e.target.value })
+                  }
+                />
+                <Form.Group controlId="formPrezzo">
+                  <Form.Label>Prezzo</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={updatedData.prezzo}
+                    className="form-crea"
+                    onChange={(e) =>
+                      setUpdatedData({
+                        ...updatedData,
+                        prezzo: parseFloat(e.target.value),
+                      })
+                    }
+                  />
+                </Form.Group>
+              </Form.Group>
+              <Form.Group controlId="formLuogo">
+                <Form.Label>Luogo</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={updatedData.luogo}
+                  className="form-crea"
+                  onChange={(e) =>
+                    setUpdatedData({ ...updatedData, luogo: e.target.value })
+                  }
+                />
+              </Form.Group>
+              <Form.Group controlId="formFotoEvento">
+                <Form.Label>Foto Evento (URL)</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={updatedData.fotoEvento}
+                  className="form-crea"
+                  onChange={(e) =>
+                    setUpdatedData({ ...updatedData, fotoEvento: e.target.value })
+                  }
+                />
+              </Form.Group>
+              <Form.Group controlId="formAutore">
+                <Form.Label>Autore</Form.Label>
+                <Form.Control type="text" value={updatedData.autore} readOnly className="form-crea" />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+  
+          <Modal.Footer className="trova-modal">
+  
+            <Button variant="secondary" className="button-crea" onClick={() => setShowModal(false)}>
+              Annulla
+            </Button>
+            <Button variant="primary" className="button-crea" onClick={handleUpdateSubmit}>
+              Salva Modifiche
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
-      <MapsTest />
+        </>
+        )
+        :
+
+        (<MapsTest />) }
+
+
+      </div>
     </div>
   );
 };

@@ -109,36 +109,38 @@ const Login = () => {
         <div className="container pt-5">
         <div className="row justify-content-center">
             <div className="col-md-6">
-                <div className="card">
-                    <div className="card-header text-center">
+                <div className="card login-container">
+                    <div className="card-header text-center login-text">
                         <h3>{isLogin ? 'Login' : 'Registrazione'}</h3>
                     </div>
                     <div className="card-body">
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
-                                <label htmlFor="email" className="form-label">
+                                <label htmlFor="email" className="form-label login-text">
                                     Email
                                 </label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
-                                    className="form-control"
+                                    className="form-control form-crea"
                                     value={formData.email}
+                                    placeholder="Inserisci l'email"
                                     onChange={handleInputChange}
                                     required
                                 />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="password" className="form-label">
+                                <label htmlFor="password" className="form-label login-text">
                                     Password
                                 </label>
                                 <input
                                     type="password"
                                     id="password"
                                     name="password"
-                                    className="form-control"
+                                    className="form-control form-crea"
                                     value={formData.password}
+                                    placeholder="Inserisci qui la password"
                                     onChange={handleInputChange}
                                     required
                                 />
@@ -146,56 +148,59 @@ const Login = () => {
                             {!isLogin && (
                                 <>
                                     <div className="mb-3">
-                                        <label htmlFor="nome" className="form-label">
+                                        <label htmlFor="nome" className="form-label login-text">
                                             Nome
                                         </label>
                                         <input
                                             type="text"
                                             id="nome"
                                             name="nome"
-                                            className="form-control"
+                                            className="form-control form-crea"
                                             value={formData.nome}
+                                            placeholder="Inserisci il nome"
                                             onChange={handleInputChange}
                                             required
                                         />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="cognome" className="form-label">
+                                        <label htmlFor="cognome" className="form-label login-text">
                                             Cognome
                                         </label>
                                         <input
                                             type="text"
                                             id="cognome"
                                             name="cognome"
-                                            className="form-control"
+                                            className="form-control form-crea"
                                             value={formData.cognome}
+                                            placeholder="Inserisci il cognome"
                                             onChange={handleInputChange}
                                             required
                                         />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="nickname" className="form-label">
+                                        <label htmlFor="nickname" className="form-label login-text">
                                             Nickname
                                         </label>
                                         <input
                                             type="text"
                                             id="nickname"
                                             name="nickname"
-                                            className="form-control"
+                                            className="form-control form-crea"
                                             value={formData.nickname}
+                                            placeholder="Inserisci il nickname"
                                             onChange={handleInputChange}
                                             required
                                         />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="fotoProfilo" className="form-label">
+                                        <label htmlFor="fotoProfilo" className="form-label login-text">
                                             URL Foto Profilo
                                         </label>
                                         <input
                                             type="url"
                                             id="fotoProfilo"
                                             name="fotoProfilo"
-                                            className="form-control"
+                                            className="form-control form-crea"
                                             value={formData.fotoProfilo}
                                             onChange={handleInputChange}
                                             placeholder="Inserisci URL immagine"
@@ -204,7 +209,7 @@ const Login = () => {
                                     </div>
                                 </>
                             )}
-                            <button type="submit" className="btn btn-primary w-100">
+                            <button type="submit" className="btn button-crea w-100">
                                 {isLogin ? 'Accedi' : 'Registrati'}
                             </button>
                         </form>
@@ -212,7 +217,7 @@ const Login = () => {
                     <div className="card-footer text-center">
                         <button
                             type="button"
-                            className="btn btn-link"
+                            className="btn login-link"
                             onClick={() => setIsLogin(!isLogin)}
                         >
                             {isLogin

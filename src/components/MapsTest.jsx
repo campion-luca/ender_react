@@ -5,68 +5,61 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 
 // default icon
 const customIcon = new Icon({
-    iconUrl: require("../assets/marker-disco.png"), // percorso icona default
-    iconSize: [38, 38] // dimensione
-})
-
+  iconUrl: require("../assets/marker-disco.png"), // percorso icona default
+  iconSize: [40, 40], // dimensione
+});
 
 // raggruppatore di marker
 const createCustomClusterIcon = (cluster) => {
-    return new divIcon({
-        html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
-        className: "custom-marker-cluster",
-        iconSize: point(33, 33, true)
-    });
+  return new divIcon({
+    html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
+    className: "custom-marker-cluster",
+    iconSize: point(33, 33, true),
+  });
 };
-
 
 // marker creati default
 const markers = [
-    {
-        geocode: [48.86, 2.3522],
-        popUp: "Hello, pop up 1"
-    },
-    {
-        geocode: [48.85, 2.3522],
-        popUp: "Hello, pop up 2"
-    },
-    {
-        geocode: [48.855, 2.34],
-        popUp: "Hello, pop up 3"
-    },
-    {
-        geocode: [45.07139462931815, 11.789627562572209],
-        popUp: "Cupola di festa!"
-    }
+  {
+    geocode: [48.86, 2.3522],
+    popUp: "Hello, pop up 1",
+  },
+  {
+    geocode: [48.85, 2.3522],
+    popUp: "Hello, pop up 2",
+  },
+  {
+    geocode: [48.855, 2.34],
+    popUp: "Hello, pop up 3",
+  },
+  {
+    geocode: [45.07139462931815, 11.789627562572209],
+    popUp: "Cupola di festa!",
+  },
 ];
 
 const MapsTest = () => {
-  
-    return(
-
+  return (
     <>
-    <MapContainer center={[48.8566, 2.3522]} zoom={13}>
-        <TileLayer 
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      <MapContainer center={[45.0451, 11.4738]} zoom={13}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         <MarkerClusterGroup
-        chunkedLoading
-        iconCreateFunction={createCustomClusterIcon}
+          chunkedLoading
+          iconCreateFunction={createCustomClusterIcon}
         >
-
-
-        {markers.map(marker => (
+          {markers.map((marker) => (
             <Marker position={marker.geocode} icon={customIcon}>
-                <Popup>{marker.popUp}</Popup>
+              <Popup>{marker.popUp}</Popup>
             </Marker>
-        ))}
-</MarkerClusterGroup>
-    </MapContainer>
+          ))}
+        </MarkerClusterGroup>
+      </MapContainer>
     </>
-
-  )
+  );
 };
 
 export default MapsTest;

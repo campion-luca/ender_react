@@ -51,7 +51,7 @@
 }
 /* SFONDO HOME */
 .bg-default-2 {
-  background-color: #a50101;
+  background: linear-gradient(135deg, #a50101, #000000);
 }
 .bg-default-black {
   background-color: #222222;
@@ -153,10 +153,11 @@
 
 .body-title {
   text-align: center;
-  color: #000000;
+  color: #d1d1d1;
   font-size: 12em;
   padding-top: 25px;
   z-index: 3;
+  text-shadow: 2px 2px 4px rgba(5, 5, 5, 0.545);
 }
 
 .body-img {
@@ -438,4 +439,75 @@ ul li:hover::before {
 .form-profilo::placeholder {
   color: #ffffff !important; /* Placeholder bianco */
   opacity: 0.8 !important; /* (Opzionale) Riduce la trasparenza del placeholder */
+}
+/* -------------------------- TROVA --------------------------  */
+.card-evento {
+  background-color: #fc333372 !important;
+  border: 1px solid rgba(0, 0, 0, 0.264) !important;
+  width: 300px !important;
+}
+.card-button {
+  background-color: #4136364a !important; /* Bianco opaco (quasi trasparente) */
+  color: #000000 !important; /* Testo nero */
+  border: 1px solid #0000002a !important; /* Bordo nero sottile */
+  border-radius: 0 !important; /* Angoli squadrati */
+  padding: 10px 20px !important; /* Spaziatura interna */
+  font-size: 16px !important; /* Dimensione del testo */
+  cursor: pointer !important; /* Cambia il cursore quando si passa sopra il bottone */
+  transition: background-color 0.3s ease, color 0.3s ease !important; /* Animazione per hover */
+}
+.card-button:hover {
+  background-color: rgba(137, 0, 0, 0.8) !important; /* Sfondo nero opaco al passaggio del mouse */
+  color: #ffffff !important; /* Testo bianco */
+}
+.card-title {
+  color: #000000 !important;
+  font-size: 0.8em !important;
+  font-weight: 800;
+}
+.card-resp {
+  color: #000000;
+  font-size: 1em;
+}
+.bg-trova {
+  background-image: url("./assets/event.jpg");
+  background-size: cover;        /* Adatta l'immagine per coprire completamente l'elemento */
+  background-repeat: no-repeat;
+  height: 200vh;
+}
+.card-int {
+  font-weight: 800;
+  font-size: 1.1em;
+}
+.trova-modal {
+  background-color: #510000 !important;
+  color: #ffffff;
+}
+.btn-stupiscimi {
+  background-color: #1d1d1d !important; /* Bianco opaco (quasi trasparente) */
+  color: #b5b5b5 !important; /* Testo nero */
+  border: 1px solid #0000002a !important; /* Bordo nero sottile */
+  border-radius: 0 !important; /* Angoli squadrati */
+  padding: 10px 20px !important; /* Spaziatura interna */
+  font-size: 16px !important; /* Dimensione del testo */
+  cursor: pointer !important; /* Cambia il cursore quando si passa sopra il bottone */
+  transition: background-color 0.3s ease, color 0.3s ease !important; /* Animazione per hover */
+  width: 300px;
+  margin-bottom: 30px;
+}
+.btn-stupiscimi:hover {
+  background-color: rgba(137, 0, 0, 0.8) !important; /* Sfondo nero opaco al passaggio del mouse */
+  color: #ffffff !important; /* Testo bianco */
+}
+/* -------------------------- LOGIN --------------------------  */
+.login-container {
+  background-color: #8a0101a7 !important;
+}
+.login-text {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+.login-link {
+  color: #000000 !important;
+  font-weight: 500 !important;
 }

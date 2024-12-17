@@ -22,7 +22,7 @@ const Trova = () => {
     nickname: "",
   });
   const [showModal, setShowModal] = useState(false);
-  const [showMap, setShowMap] = useState(false);
+  const [showMap, setShowMap] = useState(true);
   const [currentEvent, setCurrentEvent] = useState(null);
   const [updatedData, setUpdatedData] = useState({
     nome: "",
@@ -183,7 +183,7 @@ const Trova = () => {
 
       <div>
         <div className="d-flex justify-content-center">
-        <Button onClick={handleShow} className="btn-stupiscimi">Sono indeciso</Button>
+        <Button onClick={handleShow} className="btn-stupiscimi">{showMap ? ( "Mostra mappa") : ("Elenco eventi")}</Button>
         </div>
 
         {showMap ?

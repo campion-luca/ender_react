@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import emailjs from "emailjs-com"; // Import EmailJS
 
@@ -9,6 +9,8 @@ const Upgrade = () => {
     message: "",
     attachment: null,
   });
+
+  const formRef = useRef(null); // Per collegare il form al DOM
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,26 +23,20 @@ const Upgrade = () => {
   const handleFileChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
-      attachment: e.target.files[0], // Salva solo il primo file
+      attachment: e.target.files[0],
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formDataToSend = new FormData();
-    formDataToSend.append("name", formData.name);
-    formDataToSend.append("email", formData.email);
-    formDataToSend.append("message", formData.message);
-    formDataToSend.append("attachment", formData.attachment);
-
-    // Invia l'email tramite EmailJS
+    // Invia il form tramite EmailJS
     emailjs
       .sendForm(
-        "service_id", // Sostituisci con il tuo service_id
-        "template_id", // Sostituisci con il tuo template_id
-        formDataToSend,
-        "user_id" // Sostituisci con il tuo user_id
+        "service_wm6ctls", // Sostituisci con il tuo service_id
+        "template_zi897r6", // Sostituisci con il tuo template_id
+        formRef.current, // Usa il ref per ottenere il form dal DOM
+        "XaxVZ8Mk9xN1MqwQO" // Sostituisci con il tuo user_id
       )
       .then(
         (result) => {
@@ -48,7 +44,7 @@ const Upgrade = () => {
           alert("Email inviata con successo!");
         },
         (error) => {
-          console.log(error.text);
+          console.error(error.text);
           alert("C'è stato un errore nell'invio dell'email.");
         }
       );
@@ -75,7 +71,7 @@ const Upgrade = () => {
           </Col>
 
           <Col>
-            <Form onSubmit={handleSubmit}>
+            <Form ref={formRef} onSubmit={handleSubmit} encType="multipart/form-data">
               <Form.Group className="mb-3" controlId="formName">
                 <Form.Label className="upgrade-label">Nome</Form.Label>
                 <Form.Control
@@ -141,3 +137,4 @@ const Upgrade = () => {
 };
 
 export default Upgrade;
+

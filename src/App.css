@@ -461,9 +461,13 @@ ul li:hover::before {
   color: #ffffff !important; /* Testo bianco */
 }
 .card-title {
-  color: #000000 !important;
+  color: #ffffffe7 !important;
   font-size: 0.8em !important;
   font-weight: 800;
+}
+.card-text {
+  color: #ffffffe7;
+  font-size: 0.7em;
 }
 .card-resp {
   color: #000000;

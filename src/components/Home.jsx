@@ -16,7 +16,6 @@ const Home = () => {
     setIsFlipped(!isFlipped); // Alterna tra "fronte" e "retro"
   };
 
-
   return (
     <div className="bg-default-2">
       {/* APERTURA BODY */}
@@ -116,7 +115,9 @@ const Home = () => {
                     }}
                   />
                   <Card.Body className="bg-default-2 pt-1 ps-0">
-                    <Card.Title className="mb-0">COME</Card.Title>
+                    <Card.Title className="mb-0">
+                      COM'&#x200E;&#x00C8;
+                    </Card.Title>
                     <Card.Text className="">
                       Come funziona{" "}
                       <span style={{ textDecoration: "underline" }}>
@@ -178,7 +179,9 @@ const Home = () => {
                     }}
                   />
                   <Card.Body className="bg-default-2 pt-1 ps-0">
-                    <Card.Title className="mb-0">CHI</Card.Title>
+                    <Card.Title className="mb-0">
+                      CHI &#x200E;&#x00C8;
+                    </Card.Title>
                     <Card.Text className="">
                       Chi siamo noi di{" "}
                       <span style={{ textDecoration: "underline" }}>
@@ -191,24 +194,18 @@ const Home = () => {
                 <div className="card-back bg-default-black">
                   <Card.Body className="pt-1 ps-0">
                     <p className="body-text py-5">
-                      Ender è un progetto ambizioso che punta ad aiutare gli
-                      utenti a scoprire e vivere esperienze indimenticabili in
-                      giro per il <b>mondo</b>. Grazie alla nostra piattaforma,
-                      potrai trovare eventi adatti ai tuoi interessi, che si
-                      tratti di concerti, festival, mostre d’arte, conferenze,
-                      flash moab o perchè no, feste "private". Il nostro
-                      obiettivo è rendere la ricerca semplice e intuitiva,
-                      fornendo informazioni dettagliate su ogni evento: luogo,
-                      orari, prezzi e recensioni sull'organizzatore. Ender non
-                      si limita a segnalarti gli eventi, vogliamo{" "}
-                      <b>ispirarti</b>, guidarti verso esperienze uniche che
-                      rendano ogni viaggio o weekend speciale. Con un design
-                      moderno e funzionalità avanzate, Ender è il compagno
-                      ideale per chi ama esplorare e connettersi con nuove
-                      culture, persone e passioni. Ovunque ti trovi, Ender è qui
-                      per aiutarti a trasformare ogni giorno in un'avventura
-                      straordinaria e a farti immergere in culture ed eventi
-                      altrimenti <b>sconosciuti</b>.
+                      <b>Ender</b> fà riferimento ad un videogioco in cui al suo
+                      interno rappresenta un <b>portale</b> per un altro
+                      "mondo", il chè rappresenta a pieno la mission di questa
+                      applicazione, <b>aprire diversi portali</b> per i diversi
+                      eventi in giro per il mondo con la stessa semplicità con
+                      cui funziona il portale originale. I portali sono diversi
+                      perchè diversi sono anche gli "utenti" della comunity che
+                      utilizzano <b>Ender</b> come strumento per portare tutti a
+                      conoscere realtà e iniziative diverse che a loro volta
+                      possono avere anche <b>scopi</b> diersi, da una semplice
+                      festa di capodanno ad un evento volto a promuovere il
+                      territorio o argomenti più "sensibili".
                     </p>
                   </Card.Body>
                 </div>

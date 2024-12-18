@@ -22,19 +22,35 @@ const createCustomClusterIcon = (cluster) => {
 const markers = [
   {
     geocode: [48.86, 2.3522],
-    popUp: "Hello, pop up 1",
+    popUp: "Maison du Luca",
   },
   {
     geocode: [48.85, 2.3522],
-    popUp: "Hello, pop up 2",
+    popUp: "Free Baguette",
   },
   {
     geocode: [48.855, 2.34],
-    popUp: "Hello, pop up 3",
+    popUp: "Cathedral en parti",
   },
   {
-    geocode: [45.07139462931815, 11.789627562572209],
-    popUp: "Cupola di festa!",
+    geocode: [45.070262, 11.790684],
+    popUp: "Babbo Natale in piazza!",
+  },
+  {
+    geocode: [45.527909, 11.503608],
+    popUp: "Villa Bonin, opening",
+  },
+  {
+    geocode: [45.069402, 11.792291],
+    popUp: "Prolife - mostra canina",
+  },
+  {
+    geocode: [45.115529, 11.771944],
+    popUp: "Lacapait",
+  },
+  {
+    geocode: [44.880284, 11.750688],
+    popUp: "Paparazzi - closing year",
   },
 ];
 

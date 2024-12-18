@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Form, Button, FormGroup } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const Crea = () => {
   const token = localStorage.getItem("token");
@@ -95,7 +96,12 @@ const Crea = () => {
         if (response.ok) {
           console.log("Evento salvato!");
           // MODIFICA ANCHE QUESTO
-          alert("salvato, modificami");
+          Swal.fire({
+            icon: 'info',
+            title: 'Evento aggiunto con successo',
+            text: 'Ora puoi visualizzare/eliminare l evento dal menu "trova" ',
+            confirmButtonText: 'chiudi',
+        });
 
           setEvent({
             nome: "",

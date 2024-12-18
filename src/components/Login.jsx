@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 
 const Login = () => {
     const navigate = useNavigate();
@@ -93,10 +95,22 @@ const Login = () => {
 
             if (isLogin) {
                 localStorage.setItem('token', data.accessToken);
-                alert('Login riuscito!');
-                navigate('/profilo');
+                // alert('Login riuscito!');
+                // navigate('/profilo');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login riuscito!',
+                    text: 'Benvenuto nel tuo profilo!',
+                    confirmButtonText: 'OK',
+                }).then(() => navigate('/profilo'));
             } else {
-                alert('Registrazione completata! Ora puoi effettuare il login.');
+                // alert('Registrazione completata! Ora puoi effettuare il login.');
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Registrazione completata!',
+                    text: 'Ora puoi effettuare il login.',
+                    confirmButtonText: 'Vai al login',
+                });
                 setIsLogin(true);
             }
         } catch (error) {

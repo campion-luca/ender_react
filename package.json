@@ -19,6 +19,7 @@
     "react-leaflet-cluster": "^2.1.0",
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",
+    "sweetalert2": "^11.15.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

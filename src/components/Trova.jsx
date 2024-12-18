@@ -12,6 +12,7 @@ import {
   Modal,
 } from "react-bootstrap";
 import MapsTest from "./MapsTest";
+import Swal from "sweetalert2";
 
 const Trova = () => {
   const [event, setEvent] = useState([]);

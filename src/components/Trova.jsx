@@ -118,7 +118,12 @@ const Trova = () => {
         console.log(`Evento con ID ${eventoId} eliminato con successo.`);
         // rieseguo la fetch anzichè reload forzato della pagina
         fetchEvent();
-        window.alert("L'evento è stato eliminato con successo!");
+        Swal.fire({
+          icon: 'info',
+          title: 'eliminato',
+          text: 'Evento eliminato con successo!',
+          confirmButtonText: 'chiudi',
+      });
       } else {
         console.error("Errore durante l eliminazione dell evento");
       }
